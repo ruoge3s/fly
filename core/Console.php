@@ -6,16 +6,10 @@ namespace core;
  * Class Console
  * @package core
  */
-class Console
+class Console extends Handler
 {
-    protected $config;
 
     protected $argv = null;
-
-    public function __construct()
-    {
-        $this->config = Config::instance()->get();
-    }
 
     /**
      * @param $data
