@@ -1,0 +1,7 @@
+#!/usr/bin/env php
+<?php
+
+require 'bootstrap.php';
+
+(new core\Console())->setArgv($argv)->run();
+
