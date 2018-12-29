@@ -37,7 +37,6 @@ class Command extends App
     {
         $publicMethods =  parent::publicMethods();
         $publicMethods['help'] = $this->publicMethodComment('help');
-        unset($publicMethods['cmdTips']);
         return $publicMethods;
     }
 
