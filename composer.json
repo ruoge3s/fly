@@ -4,7 +4,7 @@
     "keywords": ["Fly", "framework"],
     "type": "project",
     "license": "MIT",
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
         "php": ">=7.1",
         "ext-json": ">=1.2.1",
