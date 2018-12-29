@@ -16,6 +16,8 @@ abstract class App
      */
     abstract protected static function restrain(): string;
 
+    abstract public function execute($m);
+
     public function __construct(array $config = [])
     {
         App::configure($this, $config);
@@ -111,13 +113,14 @@ abstract class App
     {
         $staticClassMethods =  array_diff(
             get_class_methods(static::class),
-            get_class_methods(self::class)
+            get_class_methods(static::restrain())
         );
 
         $publicMethods = [];
 
         foreach ($staticClassMethods as $method) {
-            $method && $publicMethods[$method] = $this->publicMethodComment($method);
+            $comment =  $this->publicMethodComment($method);
+            $comment && $publicMethods[$method] = $comment;
         }
 
         return $publicMethods;

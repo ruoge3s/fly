@@ -12,7 +12,7 @@ class Command extends App
 
     protected static function restrain(): string
     {
-        return static::class;
+        return self::class;
     }
 
     /**
@@ -37,6 +37,7 @@ class Command extends App
     {
         $publicMethods =  parent::publicMethods();
         $publicMethods['help'] = $this->publicMethodComment('help');
+        unset($publicMethods['cmdTips']);
         return $publicMethods;
     }
 
