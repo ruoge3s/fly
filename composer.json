@@ -1,29 +1,25 @@
 {
     "name": "ruoge3s/fly",
-    "description": "fly. framework",
+    "description": "Fly framework",
+    "keywords": ["Fly", "framework"],
     "type": "project",
+    "license": "MIT",
+    "minimum-stability": "dev",
     "require": {
         "php": ">=7.1",
         "ext-json": ">=1.2.1",
         "ext-swoole": ">=4.0",
         "vlucas/phpdotenv": "^2.5"
     },
-    "license": "MIT",
+    "require-dev": {
+        "eaglewu/swoole-ide-helper": "dev-master"
+    },
     "authors": [
         {
             "name": "qingliu",
             "email": "ruoge3s@gmail.com"
         }
     ],
-    "require-dev": {
-        "eaglewu/swoole-ide-helper": "dev-master"
-    },
-    "repositories": {
-        "packagist": {
-            "type": "composer",
-            "url": "https://packagist.phpcomposer.com"
-        }
-    },
     "autoload":{
         "psr-4":{
             "core\\": "core",
@@ -36,5 +32,11 @@
             "php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
             "php -r \"mkdir('./runtime');\""
         ]
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
     }
 }
