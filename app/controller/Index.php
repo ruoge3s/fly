@@ -8,7 +8,7 @@ class Index extends Controller
 {
     public function Index()
     {
-        return [1, 2, 3];
+        return '欢迎使用Fly框架';
     }
 
     public function hello()
