@@ -10,7 +10,7 @@
         "ext-json": ">=1.2.1",
         "ext-swoole": ">=4.0",
         "vlucas/phpdotenv": "^2.5",
-        "ruoge3s/fly-core": "^0.1"
+        "ruoge3s/fly-core": "^0.3"
     },
     "require-dev": {
         "eaglewu/swoole-ide-helper": "dev-master"
