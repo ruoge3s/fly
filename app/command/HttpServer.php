@@ -34,14 +34,12 @@ class HttpServer extends Command
 
         $http->on("request", function (Request $request, Response $response) use ($httpHandler) {
             Coroutine::create(function () use ($request, $response, $httpHandler) {
-                if (isset($request->header['content-type']) && $request->header['content-type'] == "application/json") {
-                    $data = $httpHandler->parse($request)->run();
-                    $response->header("Content-Type", "application/json");
-                    $response->end(json_encode($data));
-                } else {
-                    $response->status(400);
-                    $response->end();
+                $response->header("Content-Type", "application/json; charset=UTF-8");
+                if (!isset($httpHandler->routers[$request->server['path_info']])) {
+                    $request->server['path_info'] = '/error/not-found';
                 }
+                $data = $httpHandler->parse($request)->run();
+                $response->end(json_encode($data, JSON_UNESCAPED_UNICODE));
             });
         });
 
