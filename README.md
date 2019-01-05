@@ -15,8 +15,55 @@ composer install --no-dev
 > 只能使用响应json数据
 
 #### 1 创建controller
+```php
+namespace app\controller;
+
+use core\Controller;
+use core\traits\Message;
+
+class Index extends Controller
+{
+    use Message;
+
+    /**
+     * @route /index
+     * @return array
+     */
+    public function index()
+    {
+        return self::success('欢迎使用Fly.');
+    }
+
+    public function hello()
+    {
+        return self::success('hello! Fly.');
+    }
+
+    /**
+     * @route /tk
+     * @return array
+     */
+    public function thankYou()
+    {
+        return self::success('Thank you! Fly.');
+    }
+}
+
+```
 
 #### 2 使用路由
+```php
+# 注解路由,在注释中添加 @route 路由信息即可
+# 如下例子,在浏览器中输入 localhost/index即可访问
+/**
+ * @route /index
+ * @return array
+ */
+public function index()
+{
+    return self::success('欢迎使用Fly.');
+}
+```
 
 #### 3 http请求
 

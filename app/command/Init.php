@@ -2,13 +2,7 @@
 
 namespace app\command;
 
-use app\logic\NormalConsumer;
 use core\Command;
-use app\model\AdSlot;
-use app\model\Device;
-use Swoole\Coroutine\Http\Client;
-use Swoole\Coroutine\Redis;
-use Swoole\Timer;
 
 /**
  * Class Init
@@ -17,16 +11,18 @@ use Swoole\Timer;
  */
 class Init extends Command
 {
+    /**
+     * 配置的db信息
+     * @var array
+     */
     public $db;
 
+    /**
+     * @describe 输出配置中的db信息
+     */
     public function show()
     {
         print_r($this->db);
-    }
-
-    public function test()
-    {
-        mkdir('./runtime');
     }
 }
 
