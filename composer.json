@@ -10,7 +10,7 @@
         "ext-json": ">=1.2.1",
         "ext-swoole": ">=4.0",
         "vlucas/phpdotenv": "^2.5",
-        "ruoge3s/fly-core": "^0.8.0"
+        "ruoge3s/fly-core": "dev-master"
     },
     "require-dev": {
         "eaglewu/swoole-ide-helper": "dev-master"
@@ -28,10 +28,11 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
-            "@php -r \"mkdir('./runtime');\""
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
-        "post-create-project-cmd": []
+        "post-create-project-cmd": [
+            "@php -r \"mkdir('./runtime');\""
+        ]
     },
     "repositories": {
         "packagist": {
