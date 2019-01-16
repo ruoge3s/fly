@@ -9,7 +9,8 @@
         "php": ">=7.1",
         "ext-json": ">=1.2.1",
         "ext-swoole": ">=4.0",
-        "vlucas/phpdotenv": "^2.5"
+        "vlucas/phpdotenv": "^2.5",
+        "ruoge3s/fly-core": "^0.8.0"
     },
     "require-dev": {
         "eaglewu/swoole-ide-helper": "dev-master"
@@ -22,10 +23,8 @@
     ],
     "autoload":{
         "psr-4":{
-            "core\\": "core",
             "app\\": "app"
-        },
-        "files": ["core/functions.php"]
+        }
     },
     "scripts": {
         "post-install-cmd": [
