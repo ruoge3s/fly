@@ -19,7 +19,7 @@ class HttpServer extends Command
 {
     public $host = 'localhost';
 
-    public $port = 80;
+    public $port = 9000;
 
     public $pidFile = BASE_DIR . 'runtime/server.pid';
 

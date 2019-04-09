@@ -72,3 +72,8 @@ public function index()
 #### 1 创建command
 
 #### 2 使用命令
+
+### 使用docker环境
+```bash
+docker run --name fly -p 80:80 -v /Users/qingliu/fly:/home -it fly:3.0 /bin/bash
+```

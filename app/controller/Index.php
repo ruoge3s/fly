@@ -18,6 +18,10 @@ class Index extends Controller
         return self::success('欢迎使用Fly.');
     }
 
+    /**
+     * @route /hello
+     * @return array
+     */
     public function hello()
     {
         return self::success('hello! Fly.');
