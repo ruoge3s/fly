@@ -68,8 +68,8 @@ ENV PATH $PATH:$PHP_PATH/bin:$PHP_PATH/sbin/
 
 # 安装swoole扩展
 ENV SWOOLE 4.3.4
-COPY container/v$SWOOLE.zip $SRC_DIR
-RUN unzip $SRC_DIR/swoole-src-$SWOOLE.zip -d $SRC_DIR \
+COPY container/v$SWOOLE.tar.gz $SRC_DIR
+RUN tar -zxf $SRC_DIR/swoole-src-$SWOOLE..tar.gz -C $SRC_DIR \
 && cd $SRC_DIR/swoole-src-$SWOOLE/ && phpize && ./configure && make && make install \
 && sed -i '920a extension=swoole.so\n' $PHP_PATH/lib/php.ini
 
