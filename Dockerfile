@@ -11,7 +11,7 @@ RUN yum install -y gcc autoconf glibc-headers gcc-c++ wget unzip
 # 安装PHP所需的库文件
 RUN yum install -y libxml2 libxml2-devel openssl openssl-devel libcurl libcurl-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel pcre pcre-devel zlib zlib-devel
 
-ENV SRC_DIR /usr/src
+ENV SRC_DIR /home
 
 # 编译安装PHP所需的re2c
 ENV RE2C 1.1.1
@@ -69,7 +69,7 @@ ENV PATH $PATH:$PHP_PATH/bin:$PHP_PATH/sbin/
 # 安装swoole扩展
 ENV SWOOLE 4.3.4
 COPY container/v$SWOOLE.tar.gz $SRC_DIR
-RUN tar -zxf $SRC_DIR/swoole-src-$SWOOLE..tar.gz -C $SRC_DIR \
+RUN tar -zxf $SRC_DIR/v$SWOOLE.tar.gz -C $SRC_DIR \
 && cd $SRC_DIR/swoole-src-$SWOOLE/ && phpize && ./configure && make && make install \
 && sed -i '920a extension=swoole.so\n' $PHP_PATH/lib/php.ini
 
