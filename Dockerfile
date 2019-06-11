@@ -15,11 +15,9 @@ ENV SRC_DIR /usr/src
 
 # 编译安装PHP所需的re2c
 ENV RE2C 1.1.1
-COPY container/$RE2C.zip $SRC_DIR
-RUN unzip $SRC_DIR/$RE2C.zip -d $SRC_DIR \
+COPY container/re2c-$RE2C.tar.gz $SRC_DIR
+RUN tar -zxvf $SRC_DIR/re2c-$RE2C.tar.gz -C $SRC_DIR \
 && cd $SRC_DIR/re2c-$RE2C \
-&& ls $SRC_DIR/re2c-$RE2C \
-&& ./release.sh \
 && ./configure && make && make install
 
 # 安装PHP7所需的bison

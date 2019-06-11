@@ -1,7 +1,7 @@
 # 依赖包文件github下载地址
 
 ## re2c
-https://github.com/skvadrik/re2c/archive/1.1.1.zip
+https://github.com/skvadrik/re2c/releases/download/1.1.1/re2c-1.1.1.tar.gz
 
 ## bison
 
