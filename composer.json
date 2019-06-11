@@ -9,12 +9,12 @@
         "php": ">=7.1",
         "ext-json": "*",
         "ext-pcntl": "*",
-        "ext-swoole": ">=4.0",
+        "ext-swoole": ">=4.3",
         "vlucas/phpdotenv": "^2.5",
         "ruoge3s/fly-core": "dev-master"
     },
     "require-dev": {
-        "eaglewu/swoole-ide-helper": "dev-master"
+        "swoft/swoole-ide-helper": "^4.3"
     },
     "authors": [
         {

@@ -19,7 +19,7 @@ class HttpServer extends Command
 {
     public $host = 'localhost';
 
-    public $port = 80;
+    public $port = 9191;
 
     public $pidFile = BASE_DIR . 'runtime/server.pid';
 
@@ -33,7 +33,7 @@ class HttpServer extends Command
 
         $http->set([
 //            'worker_num' => 8,
-            'daemonize' => 1,
+            'daemonize' => false,
             'log_file' => BASE_DIR . 'runtime/swoole.log',
             'pid_file' => $this->pidFile,
         ]);
@@ -66,6 +66,7 @@ class HttpServer extends Command
         if (is_file($this->pidFile)) {
             $pid = file_get_contents($this->pidFile);
             Process::kill($pid);
+            echo "close {$pid}\n";
         }
     }
 }
