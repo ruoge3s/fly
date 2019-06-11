@@ -27,7 +27,7 @@ RUN tar -zxf $SRC_DIR/$BISON.tar.gz -C $SRC_DIR \
 && cd $SRC_DIR/$BISON && ./configure && make && make install
 
 # 安装PHP 可以根据自己实际情况进行配置
-ENV PHP 7.3.6
+ENV PHP 7.2.19
 ENV PHP_PATH /usr/local/php
 COPY container/php-$PHP.tar.gz $SRC_DIR
 RUN tar -zxf $SRC_DIR/php-$PHP.tar.gz -C $SRC_DIR \
