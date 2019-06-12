@@ -26,7 +26,7 @@ class Multi extends Command
             echo "Worker#{$workerId} is started\n";
             while ($running) {
                 $msg = "#{$workerId} " . date('Y-m-d H:i:s');
-                sleep(rand(1, 5)); // 模拟业务处理
+                sleep(rand(3, 10)); // 模拟业务处理
                 echo "$msg\n";
                 pcntl_signal_dispatch();
             }

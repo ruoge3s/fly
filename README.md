@@ -72,3 +72,9 @@ public function index()
 #### 1 创建command
 
 #### 2 使用命令
+
+### docker环境运行
+
+```bash
+docker run -it --rm --name fly -v $(pwd)/fly:/var/www -p 8081:9000 fly:1.1 php bin/fly Multi:process
+```

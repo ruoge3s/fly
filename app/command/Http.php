@@ -19,7 +19,7 @@ class Http extends Command
 {
     public $host = 'localhost';
 
-    public $port = 9191;
+    public $port = 9000;
 
     public $pidFile = BASE_DIR . 'runtime/server.pid';
 
