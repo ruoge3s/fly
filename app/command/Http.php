@@ -3,7 +3,7 @@
 namespace app\command;
 
 use core\Command;
-use core\Http;
+use core\Http as CoreHttp;
 use Swoole\Coroutine;
 use Swoole\Http\Request;
 use Swoole\Http\Response;
@@ -15,7 +15,7 @@ use Swoole\Process;
  * @describe HTTP服务(协程)
  * @package app\command
  */
-class HttpServer extends Command
+class Http extends Command
 {
     public $host = 'localhost';
 
@@ -28,12 +28,12 @@ class HttpServer extends Command
      */
     public function run()
     {
-        $httpHandler = new Http();
+        $httpHandler = new CoreHttp();
         $http = new Server($this->host, $this->port);
 
         $http->set([
 //            'worker_num' => 8,
-            'daemonize' => 1,
+            'daemonize' => false,
             'log_file' => BASE_DIR . 'runtime/swoole.log',
             'pid_file' => $this->pidFile,
         ]);
@@ -66,6 +66,7 @@ class HttpServer extends Command
         if (is_file($this->pidFile)) {
             $pid = file_get_contents($this->pidFile);
             Process::kill($pid);
+            echo "close {$pid}\n";
         }
     }
 }

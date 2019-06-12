@@ -73,7 +73,10 @@ public function index()
 
 #### 2 使用命令
 
-### 使用docker环境
+### docker环境运行
+
 ```bash
-docker run --name fly -p 80:80 -v /Users/qingliu/fly:/home -it fly:3.0 /bin/bash
+docker run -d --rm --name fly -v $(pwd)/fly:/var/www -p 8081:9000 fly:1.1 php bin/fly Multi:process
+
+docker run -it --rm --name fly -v $(pwd)/fly:/var/www -p 8081:9000 fly:1.1 php bin/fly Multi:process
 ```
