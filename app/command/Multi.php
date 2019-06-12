@@ -2,6 +2,7 @@
 namespace app\command;
 
 use core\Command;
+use Swoole\Coroutine\Redis;
 use Swoole\Process\Pool;
 
 /**
@@ -18,24 +19,28 @@ class Multi extends Command
         $pool = new Pool($this->workNum);
 
         $pool->on("WorkerStart", function (Pool $pool, $workerId) {
-            $running = true;
-            pcntl_signal(SIGTERM, function () use (&$running, $workerId) {
-                echo "#{$workerId}  收到退出信号，正在终止进程...\n";
-                $running = false;
+            go(function () use ($workerId) {
+                $running = true;
+                pcntl_signal(SIGTERM, function () use (&$running, $workerId) {
+                    echo "#{$workerId}  收到退出信号，正在终止进程...\n";
+                    $running = false;
+                });
+                $redis = new Redis();
+                $redis->connect('127.0.0.1', 6379);
+                $redis->auth('123456');
+                while ($running) {
+                    $msg = "#{$workerId} " . date('Y-m-d H:i:s');
+                    sleep(rand(3, 10)); // 模拟业务处理
+                    $redis->hSet('process', $workerId, $msg);
+                    echo $msg;
+                    pcntl_signal_dispatch();
+                }
             });
-            echo "Worker#{$workerId} is started\n";
-            while ($running) {
-                $msg = "#{$workerId} " . date('Y-m-d H:i:s');
-                sleep(rand(3, 10)); // 模拟业务处理
-                echo "$msg\n";
-                pcntl_signal_dispatch();
-            }
         });
 
         $pool->on("WorkerStop", function ($pool, $workerId) {
             echo "Worker#{$workerId} is stopped\n";
         });
-
         $pool->start();
     }
 }
