@@ -13,5 +13,12 @@ return [
         'user' => env('DB_USER', 'root'),
         'port' => env('DB_PORT', 3306),
         'charset' => env('DB_CHARSET', 'utf8')
+    ],
+    'mail' => [
+        'host'      => env('MAIL_HOST', 'smtp.qq.com'),
+        'port'      => env('MAIL_PORT', '465'),
+        'encry'     => env('MAIL_ENCRY', 'ssl'),
+        'username'  => env('MAIL_USERNAME', 'fly@qq.com'),
+        'password'  => env('MAIL_PASSWORD', '12345678')
     ]
 ];

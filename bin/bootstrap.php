@@ -8,8 +8,11 @@ require_once BASE_DIR. 'config/error-code.php';
 date_default_timezone_set("Asia/Shanghai");
 
 \core\abstracts\App::$baseDir = BASE_DIR;
-(new Dotenv\Dotenv(BASE_DIR))->load();
 
-$info = require BASE_DIR . 'config/info.php';
+$repository = \Dotenv\Repository\RepositoryBuilder::createWithDefaultAdapters()->make();
+
+Dotenv\Dotenv::create($repository, BASE_DIR)->load();
+
+$info = require BASE_DIR . 'config/app.php';
 \core\Config::instance()->load($info);
 
