@@ -3,6 +3,8 @@
 *.lock
 .env
 
+storage/*
+
 vendor
 runtime
 index.php

@@ -20,5 +20,15 @@ return [
         'encry'     => env('MAIL_ENCRY', 'ssl'),
         'username'  => env('MAIL_USERNAME', 'fly@qq.com'),
         'password'  => env('MAIL_PASSWORD', '12345678')
+    ],
+    'ali' => [
+        'oss' => [
+            'akid'      => env('ALI_OSS_AK_ID', ''),
+            'secret'    => env('ALI_OSS_SECRET', ''),
+            'endpoint'  => env('ALI_OSS_ENDPOINT', 'oss-cn-shanghai.aliyuncs.com'),
+            'bucket'    => [
+                'default' => env('ALI_OSS_DEFAULT_BUCKET', 'NoName')
+            ]
+        ]
     ]
 ];

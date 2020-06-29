@@ -15,7 +15,8 @@
         "ruoge3s/protobuf-message-helper": "^0.5.0",
         "gyt/contract": "*",
         "alibabacloud/client": "^1.5",
-        "vlucas/phpdotenv": "^5.0"
+        "vlucas/phpdotenv": "^5.0",
+        "aliyuncs/oss-sdk-php": "^2.3"
     },
     "require-dev": {
         "swoft/swoole-ide-helper": "^4.3"
