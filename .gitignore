@@ -8,3 +8,5 @@ storage/*
 vendor
 runtime
 index.php
+
+test
