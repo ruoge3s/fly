@@ -45,4 +45,10 @@ class Ali extends Command
             print $e->getMessage();
         }
     }
+
+    public function acm()
+    {
+        $config = Config::instance()->get('ali.acm');
+        print_r($config);
+    }
 }
