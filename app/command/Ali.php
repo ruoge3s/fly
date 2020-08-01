@@ -54,7 +54,7 @@ class Ali extends Command
      */
     public function acm()
     {
-        $config = Config::instance()->get('ali.acm');
+        $config = Config::instance()->get('es.acm');
 
         // curl acm.aliyun.com:8080/diamond-server/diamond
 

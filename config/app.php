@@ -21,6 +21,11 @@ return [
         'username'  => env('MAIL_USERNAME', 'fly@qq.com'),
         'password'  => env('MAIL_PASSWORD', '12345678')
     ],
+    'es'    => [
+        'hosts' => [
+            'http://192.168.1.4:9200'
+        ]
+    ],
     'ali' => [
         'oss' => [
             'akid'      => env('ALI_OSS_AK_ID', ''),
