@@ -21,10 +21,13 @@ return [
         'username'  => env('MAIL_USERNAME', 'fly@qq.com'),
         'password'  => env('MAIL_PASSWORD', '12345678')
     ],
+    'log'   => [
+        'filename'  => BASE_DIR . 'runtime/app.log',
+        'name'      => 'app',
+        'level'     => \Monolog\Logger::DEBUG
+    ],
     'es'    => [
-        'hosts' => [
-            'http://192.168.1.4:9200'
-        ]
+        'hosts' => explode(',', env('ELASTICSEARCH_HOSTS', '127.0.0.1:9200'))
     ],
     'ali' => [
         'oss' => [
