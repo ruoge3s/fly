@@ -13,7 +13,6 @@
         "ruoge3s/fly-core": "^0.11.0",
         "swiftmailer/swiftmailer": "^6.2",
         "ruoge3s/protobuf-message-helper": "^0.5.0",
-        "gyt/contract": "*",
         "alibabacloud/client": "^1.5",
         "vlucas/phpdotenv": "^5.0",
         "aliyuncs/oss-sdk-php": "^2.3",
@@ -42,17 +41,10 @@
             "@php -r \"mkdir('./runtime');\""
         ]
     },
-    "repositories": [
-        {
+    "repositories": {
+        "packagist": {
             "type": "composer",
-            "url": "https://packagist.phpcomposer.com"
-        },
-        {
-            "type": "composer",
-            "url": "http://pks.iosoon.cn:81"
+            "url": "https://mirrors.aliyun.com/composer/"
         }
-    ],
-    "config": {
-        "secure-http": false
     }
 }
