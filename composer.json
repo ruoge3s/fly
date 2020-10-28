@@ -10,15 +10,16 @@
         "ext-json": "*",
         "ext-pcntl": "*",
         "ext-swoole": ">=4.3",
-        "ruoge3s/fly-core": "^0.11.0",
+        "ruoge3s/fly-core": "^0.11",
         "swiftmailer/swiftmailer": "^6.2",
         "ruoge3s/protobuf-message-helper": "^0.5.0",
-        "gyt/contract": "*",
         "alibabacloud/client": "^1.5",
         "vlucas/phpdotenv": "^5.0",
         "aliyuncs/oss-sdk-php": "^2.3",
         "elasticsearch/elasticsearch": "^7.8",
-        "monolog/monolog": "^2.1"
+        "monolog/monolog": "^2.1",
+        "endroid/qr-code": "^3.0@dev",
+        "lestore/core": "^1.0"
     },
     "require-dev": {
         "swoft/swoole-ide-helper": "^4.3"
@@ -45,14 +46,11 @@
     "repositories": [
         {
             "type": "composer",
-            "url": "https://packagist.phpcomposer.com"
+            "url": "https://mirrors.aliyun.com/composer"
         },
         {
-            "type": "composer",
-            "url": "http://pks.iosoon.cn:81"
+            "type": "vcs",
+            "url":  "git@github.com:soonio/seer.git"
         }
-    ],
-    "config": {
-        "secure-http": false
-    }
+    ]
 }
