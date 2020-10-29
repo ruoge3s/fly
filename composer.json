@@ -52,5 +52,8 @@
             "type": "vcs",
             "url":  "git@github.com:soonio/seer.git"
         }
-    ]
+    ],
+    "config": {
+        "secure-http": true
+    }
 }
