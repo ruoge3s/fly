@@ -25,13 +25,14 @@ class Mail extends Command
 
         $message = (new \Swift_Message('test2'))
             ->setFrom([$config['username'] => '一个测试的邮箱'])
-            ->setTo(['ruoge3s@qq.com' => '清流'])
+            ->setTo(['soonio@qq.com' => '清流'])
             ->setBody(date('Y-m-d H:i:s') . '恭喜你正常收到邮件，邮件测试通过。')
         ;
 
         $result = $mailer->send($message);
         var_dump($result);
     }
+
     public function config()
     {
        print_r(Config::instance()->get('mail'));
