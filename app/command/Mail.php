@@ -24,7 +24,7 @@ class Mail extends Command
         $mailer = new \Swift_Mailer($transport);
 
         $message = (new \Swift_Message('test2'))
-            ->setFrom([$config['username'] => '一个测试的邮箱'])
+            ->setFrom([$config['username'] => 'TTT'])
             ->setTo(['soonio@qq.com' => '清流'])
             ->setBody(date('Y-m-d H:i:s') . '恭喜你正常收到邮件，邮件测试通过。')
         ;
