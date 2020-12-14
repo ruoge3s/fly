@@ -36,7 +36,7 @@ class Lunar extends Command
 
                 file_put_contents("calendar/{$date}.json", $res);
                 echo '消耗 ' . (time() - $start) . "s\n";
-                sleep(1);
+//                sleep(1);
             }
             echo '[结束]' . date('Y-m-d H:i:s') . "\n";
         }
@@ -48,6 +48,8 @@ class Lunar extends Command
         $months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
 
         $file = fopen("calendar.txt", "w+");
+
+        if (is_dir('calendar') || mkdir('calendar', 0655))
 
         foreach ($years as $year) {
             foreach ($months as $month) {
@@ -66,6 +68,7 @@ class Lunar extends Command
                             $mCalendar['solarWeek'],
                             $mCalendar['dayOff'],
                             $mCalendar['thisMonth'],
+                            $mCalendar['anniversaryList'],
                         ];
                         fwrite($file, json_encode($data, JSON_UNESCAPED_UNICODE) . "\n");
                     }
